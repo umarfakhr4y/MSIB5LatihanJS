@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Tugas 2 - Umar Fakhriy</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-5">
+                <div class="card">
+                    <div class="card-header font-weight-bold">
+                        Hitung Nilai Rata-rata - Umar Fakhriy
+                    </div>
+                    <div class="card-body">
+
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Nama</label>
+                                <input type="email" class="form-control" id="snama" aria-describedby="emailHelp"
+                                    placeholder="Masukan Nama">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Mata Kuliah</label>
+                                <input type="email" class="form-control" id="smatkul" aria-describedby="emailHelp"
+                                    placeholder="Masukan Mata Kuliah">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Grade :</label>
+                                <br>
+                                <select id="sgrade" class="form-select" aria-label="Default select example" required>
+                                    <option value="">Pilih Grade</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="klikSubmit()">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <div class="card-header">
+                        Data Yang Diperoleh
+                        <button type="button" class="btn btn-primary float-right" onclick="deleteTable()">Clear</button>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <table class="table" id="tabelAkhir">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Matkul</th>
+                                    <th scope="col">Grade</th>
+                                    <th scope="col">Rata2</th>
+                                </tr>
+                            </thead>
+
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script>
+        const gradeValues = {
+            A: 4,
+            B: 3,
+            C: 2,
+            D: 1
+        };
+
+        function deleteTable() {
+            var myTable = document.getElementById("tabelAkhir");
+            var rowCount = myTable.rows.length;
+            for (var x = rowCount - 1; x > 0; x--) {
+                myTable.deleteRow(x);
+            }
+        }
+
+        function klikSubmit() {
+            let getNama = document.getElementById("snama").value;
+            let getMatkul = document.getElementById("smatkul").value;
+            let getGrade = document.getElementById("sgrade").value;
+
+            if (getNama === "" || getMatkul === "" || getGrade === "") {
+                alert("Semua field harus diisi.");
+            } else {
+                const nilaiNumerik = gradeValues[getGrade];
+
+                const buatBaris = tabelAkhir.insertRow(-1); // Insert a row at the end of the table
+                buatBaris.insertCell(0).innerHTML = getNama;
+                buatBaris.insertCell(1).innerHTML = getMatkul;
+                buatBaris.insertCell(2).innerHTML = getGrade;
+                buatBaris.insertCell(3).innerHTML = nilaiNumerik;
+            }
+        }
+    </script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+<!-- Umar Fakhriy -->
